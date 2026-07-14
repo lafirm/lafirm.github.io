@@ -1,0 +1,107 @@
+---
+import { experienceData } from '../data/experience';
+
+interface Props {
+  id?: string;
+}
+
+const { id = 'experience' } = Astro.props;
+---
+
+<section id={id} class="section-spacing border-t border-card-border">
+  <div class="container-wide">
+    <div class="max-w-4xl mx-auto">
+      <!-- Section Header -->
+      <div class="mb-16">
+        <span class="badge mb-4 inline-block">Experience</span>
+        <h2 class="heading-lg">
+          Professional <span class="text-accent">Journey</span>
+        </h2>
+      </div>
+
+      <!-- Experience Timeline -->
+      <div class="space-y-12">
+        {
+          experienceData.map((exp, index) => (
+            <div class="relative">
+              {/* Timeline line */}
+              {index !== experienceData.length - 1 && (
+                <div class="absolute left-6 top-20 w-0.5 h-20 bg-card-border"></div>
+              )}
+
+              <div class="flex gap-6">
+                {/* Timeline dot */}
+                <div class="flex-shrink-0">
+                  <div class="w-12 h-12 rounded-full bg-accent bg-opacity-10 border border-accent flex items-center justify-center text-accent font-bold text-sm mt-1">
+                    {index + 1}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div class="flex-1">
+                  <div class="card">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                      <div>
+                        <h3 class="text-2xl font-bold text-text-primary">{exp.title}</h3>
+                        <p class="text-accent font-semibold mt-1">{exp.company}</p>
+                      </div>
+                      <span class="text-text-tertiary text-sm mt-2 md:mt-0 whitespace-nowrap">
+                        {exp.period}
+                      </span>
+                    </div>
+
+                    <p class="text-text-secondary mb-6">{exp.description}</p>
+
+                    {/* Highlights */}
+                    {exp.highlights && exp.highlights.length > 0 && (
+                      <div class="mb-6 p-4 bg-card-bg bg-opacity-50 border border-card-border rounded-lg">
+                        <p class="text-sm text-success font-semibold mb-2">Key Highlight</p>
+                        <ul class="space-y-1">
+                          {exp.highlights.map((highlight) => (
+                            <li class="text-text-secondary text-sm flex items-start gap-2">
+                              <span class="text-success mt-1">•</span>
+                              <span>{highlight}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Themes */}
+                    <div class="space-y-6">
+                      {exp.themes.map((theme) => (
+                        <div>
+                          <h4 class="text-lg font-semibold text-text-primary mb-3">{theme.name}</h4>
+                          <ul class="space-y-2">
+                            {theme.items.map((item) => (
+                              <li class="text-text-secondary text-sm flex items-start gap-2">
+                                <span class="text-accent mt-1">→</span>
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Technologies */}
+                    <div class="mt-6 pt-6 border-t border-card-border">
+                      <p class="text-sm text-text-tertiary font-semibold mb-3">Technologies</p>
+                      <div class="flex flex-wrap gap-2">
+                        {exp.technologies.map((tech) => (
+                          <span class="px-3 py-1 bg-accent bg-opacity-10 text-accent rounded-full text-xs font-medium">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,107 @@
+---
+import { skills } from '../data/projects';
+
+interface Props {
+  id?: string;
+}
+
+const { id = 'skills' } = Astro.props;
+---
+
+<section id={id} class="section-spacing border-t border-card-border">
+  <div class="container-wide">
+    <div class="max-w-5xl mx-auto">
+      <!-- Section Header -->
+      <div class="mb-16">
+        <span class="badge mb-4 inline-block">Technical Skills</span>
+        <h2 class="heading-lg">
+          Tools & <span class="text-accent">Technologies</span>
+        </h2>
+        <p class="text-xl text-text-secondary mt-4 max-w-2xl">
+          A curated collection of technologies I've mastered through real-world projects.
+        </p>
+      </div>
+
+      <!-- Skills Sections -->
+      <div class="space-y-12">
+        {/* Primary Skills */}
+        <div>
+          <h3 class="text-2xl font-bold mb-6 text-text-primary">Primary Skills</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            {skills.primary.map((skill) => (
+              <div class="card group hover:border-accent transition-colors">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <h4 class="font-semibold text-lg text-text-primary group-hover:text-accent transition-colors">
+                      {skill.name}
+                    </h4>
+                    <p class="text-text-secondary text-sm mt-1">{skill.description}</p>
+                  </div>
+                  <div class="flex-shrink-0 w-2 h-2 rounded-full bg-accent mt-2"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Secondary Skills */}
+        <div>
+          <h3 class="text-2xl font-bold mb-6 text-text-primary">Secondary Skills</h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {skills.secondary.map((skill) => (
+              <div class="card group hover:border-accent transition-colors">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <h4 class="font-semibold text-text-primary group-hover:text-accent transition-colors">
+                      {skill.name}
+                    </h4>
+                    <p class="text-text-secondary text-xs mt-1">{skill.description}</p>
+                  </div>
+                  <div class="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-text-tertiary mt-1"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Tools */}
+        <div>
+          <h3 class="text-2xl font-bold mb-6 text-text-primary">Tools & Platforms</h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {skills.tools.map((skill) => (
+              <div class="card group hover:border-success transition-colors">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <h4 class="font-semibold text-text-primary group-hover:text-success transition-colors">
+                      {skill.name}
+                    </h4>
+                    <p class="text-text-secondary text-xs mt-1">{skill.description}</p>
+                  </div>
+                  <div class="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-success mt-1"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Expertise Summary -->
+      <div class="mt-16 p-8 card border-accent border-opacity-30 bg-accent bg-opacity-5">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <p class="text-3xl font-bold text-accent mb-2">9+</p>
+            <p class="text-text-secondary">Primary Technologies Mastered</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-success mb-2">10+</p>
+            <p class="text-text-secondary">Secondary Languages & Frameworks</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-text-primary mb-2">6+</p>
+            <p class="text-text-secondary">Years Professional Experience</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

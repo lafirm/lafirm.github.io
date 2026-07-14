@@ -1,0 +1,102 @@
+---
+import { profileData } from '../data/profile';
+
+interface Props {
+  id?: string;
+}
+
+const { id = 'about' } = Astro.props;
+---
+
+<section id={id} class="section-spacing border-t border-card-border">
+  <div class="container-wide">
+    <div class="max-w-4xl mx-auto">
+      <!-- Section Header -->
+      <div class="mb-16">
+        <span class="badge mb-4 inline-block">About Me</span>
+        <h2 class="heading-lg">
+          From Vehicle Data Analysis to <span class="text-accent">Data Engineering</span>
+        </h2>
+      </div>
+
+      <!-- Story -->
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6 text-lg leading-relaxed">
+          <p class="text-text-secondary">
+            I started my career at Daimler India analyzing vehicle manufacturing data using Excel and Pandas. Professional certifications from LSBF Singapore formalized my transition into data engineering, where I discovered my passion for building scalable data platforms and infrastructure.
+          </p>
+
+          <p class="text-text-secondary">
+            What started as data analysis in Excel evolved into building automated data pipelines, then cloud infrastructure, and eventually designing scalable platform engineering solutions. Each role represented a step deeper into understanding how systems work.
+          </p>
+
+          <p class="text-text-secondary">
+            Today, I specialize in building reliable, observable data platforms that scale. I believe in infrastructure as code, automation over manual work, and developer experience as a competitive advantage.
+          </p>
+
+          <p class="text-text-secondary">
+            I was promoted to Senior Software Development Engineer within 15 months at Optum because I prioritize quality, mentorship, and solving problems at their root.
+          </p>
+        </div>
+
+        <!-- Journey Timeline -->
+        <div class="space-y-4">
+          <div class="flex gap-4">
+            <div class="flex flex-col items-center">
+              <div class="w-12 h-12 rounded-full bg-accent bg-opacity-20 border border-accent flex items-center justify-center text-accent font-bold">
+                1
+              </div>
+              <div class="w-0.5 h-20 bg-card-border mt-4"></div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg">Graduate Engineer</h3>
+              <p class="text-text-tertiary">Daimler India</p>
+              <p class="text-sm text-text-secondary mt-2">Vehicle data analysis with Excel & Pandas</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="flex flex-col items-center">
+              <div class="w-12 h-12 rounded-full bg-accent bg-opacity-20 border border-accent flex items-center justify-center text-accent font-bold">
+                2
+              </div>
+              <div class="w-0.5 h-20 bg-card-border mt-4"></div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg">Operations Engineer</h3>
+              <p class="text-text-tertiary">AG Cars Services LLC</p>
+              <p class="text-sm text-text-secondary mt-2">Data extraction and process optimization</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="flex flex-col items-center">
+              <div class="w-12 h-12 rounded-full bg-accent bg-opacity-20 border border-accent flex items-center justify-center text-accent font-bold">
+                3
+              </div>
+              <div class="w-0.5 h-20 bg-card-border mt-4"></div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg">Data Analyst</h3>
+              <p class="text-text-tertiary">Mahindra Logistics</p>
+              <p class="text-sm text-text-secondary mt-2">Building data pipelines and automation</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="flex flex-col items-center">
+              <div class="w-12 h-12 rounded-full bg-success bg-opacity-20 border border-success flex items-center justify-center text-success font-bold">
+                ✓
+              </div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg">Senior Data Engineer</h3>
+              <p class="text-text-tertiary">Optum (EMIS Health)</p>
+              <p class="text-sm text-text-secondary mt-2">Platform engineering at scale</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

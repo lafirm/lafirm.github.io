@@ -1,0 +1,22 @@
+{
+  "name": "lafir-portfolio",
+  "version": "1.0.0",
+  "description": "Lafir M",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "latest",
+    "astro": "^7.0.9",
+    "tailwindcss": "^3.4.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.0",
+    "terser": "^5.29.0",
+    "typescript": "^5.3.0"
+  }
+}

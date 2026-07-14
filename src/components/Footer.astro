@@ -1,0 +1,113 @@
+---
+import { profileData } from '../data/profile';
+
+interface Props {
+  id?: string;
+}
+
+const { id = 'footer' } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<footer id={id} class="border-t border-card-border py-12">
+  <div class="container-wide">
+    <div class="max-w-4xl mx-auto">
+      <!-- Footer Content -->
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-accent bg-opacity-10 flex items-center justify-center">
+              <span class="text-accent font-bold">LM</span>
+            </div>
+            <span class="font-semibold">{profileData.name}</span>
+          </div>
+          <p class="text-text-secondary text-sm">
+            Senior Data Engineer. Building reliable platforms.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-semibold text-text-primary mb-4">Navigation</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="#home" class="text-text-secondary hover:text-accent transition-colors text-sm">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#about" class="text-text-secondary hover:text-accent transition-colors text-sm">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#experience" class="text-text-secondary hover:text-accent transition-colors text-sm">
+                Experience
+              </a>
+            </li>
+            <li>
+              <a href="#projects" class="text-text-secondary hover:text-accent transition-colors text-sm">
+                Projects
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Social -->
+        <div>
+          <h4 class="font-semibold text-text-primary mb-4">Social</h4>
+          <ul class="space-y-2">
+            <li>
+              <a
+                href={profileData.social.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-text-secondary hover:text-accent transition-colors text-sm"
+              >
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a
+                href={profileData.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-text-secondary hover:text-accent transition-colors text-sm"
+              >
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${profileData.email}`} class="text-text-secondary hover:text-accent transition-colors text-sm">
+                Email
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Latest -->
+        <div>
+          <h4 class="font-semibold text-text-primary mb-4">Built With</h4>
+          <ul class="space-y-2 text-sm">
+            <li class="text-text-secondary">Astro</li>
+            <li class="text-text-secondary">Tailwind CSS</li>
+            <li class="text-text-secondary">TypeScript</li>
+            <li class="text-text-secondary">GitHub Pages</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-card-border mb-8"></div>
+
+      <!-- Copyright -->
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-text-tertiary text-sm">
+        <p>&copy; {currentYear} {profileData.name}. All rights reserved.</p>
+        <p>
+          Crafted with attention to detail. Designed for senior engineers by a senior engineer.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

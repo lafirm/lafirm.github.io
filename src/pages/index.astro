@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Philosophy from '../components/Philosophy.astro';
+import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
+import Skills from '../components/Skills.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Lafir M';
+const description =
+  'Senior Software Development Engineer specializing in modern data platforms, cloud infrastructure, and platform engineering. Building reliable, scalable systems.';
+---
+
+<Layout title={title} description={description}>
+  <Header />
+  <main class="pt-16">
+    <Hero id="home" />
+    <About id="about" />
+    <Philosophy id="philosophy" />
+    <Experience id="experience" />
+    <Projects id="projects" />
+    <Skills id="skills" />
+    <Contact id="contact" />
+  </main>
+  <Footer id="footer" />
+</Layout>

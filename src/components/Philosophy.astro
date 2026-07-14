@@ -1,0 +1,47 @@
+---
+import { engineeringPhilosophy } from '../data/profile';
+
+interface Props {
+  id?: string;
+}
+
+const { id = 'philosophy' } = Astro.props;
+---
+
+<section id={id} class="section-spacing border-t border-card-border bg-card-bg bg-opacity-30">
+  <div class="container-wide">
+    <div class="max-w-4xl mx-auto">
+      <!-- Section Header -->
+      <div class="mb-16">
+        <span class="badge mb-4 inline-block">Philosophy</span>
+        <h2 class="heading-lg">
+          How I Think About <span class="text-accent">Engineering</span>
+        </h2>
+        <p class="text-xl text-text-secondary mt-4 max-w-2xl">
+          These principles guide every design decision, from architecture to implementation.
+        </p>
+      </div>
+
+      <!-- Philosophy Grid -->
+      <div class="grid md:grid-cols-2 gap-8">
+        {
+          engineeringPhilosophy.map((principle, index) => (
+            <div class="card-hover group">
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-accent bg-opacity-10 flex items-center justify-center text-accent font-bold text-sm">
+                  {index + 1}
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold text-text-primary mb-2 group-hover:text-accent transition-colors">
+                    {principle.title}
+                  </h3>
+                  <p class="text-text-secondary text-sm leading-relaxed">{principle.description}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

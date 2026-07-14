@@ -1,0 +1,75 @@
+---
+import { profileData } from '../data/profile';
+
+interface Props {
+  id?: string;
+}
+
+const { id = 'contact' } = Astro.props;
+---
+
+<section id={id} class="section-spacing border-t border-card-border bg-card-bg bg-opacity-50">
+  <div class="container-wide">
+    <div class="max-w-2xl mx-auto text-center">
+      <!-- Section Header -->
+      <div class="mb-12">
+        <span class="badge mb-4 inline-block">Get in Touch</span>
+        <h2 class="heading-lg">
+          Let's Build Something <span class="text-accent">Great</span>
+        </h2>
+        <p class="text-xl text-text-secondary mt-4">
+          Open to opportunities, collaborations, and interesting conversations about engineering.
+        </p>
+      </div>
+
+      <!-- Contact Options -->
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        <!-- Email -->
+        <a
+          href={`mailto:${profileData.email}`}
+          class="card group hover:border-accent transition-colors"
+        >
+          <div class="text-4xl mb-4">✉</div>
+          <p class="text-sm text-text-tertiary uppercase tracking-wide transition-colors font-semibold mb-2">Email</p>
+          <p class="font-medium group-hover:text-accent transition-colors break-all">
+            lafir@[email].com
+          </p>
+        </a>
+
+        <!-- GitHub -->
+        <a
+          href={profileData.social.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="card group hover:border-accent transition-colors"
+        >
+          <div class="text-4xl mb-4">→</div>
+          <p class="text-sm text-text-tertiary uppercase tracking-wide font-semibold mb-2">GitHub</p>
+          <p class="font-medium group-hover:text-accent transition-colors">@lafirm</p>
+        </a>
+
+        <!-- LinkedIn -->
+        <a
+          href={profileData.social.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="card group hover:border-accent transition-colors"
+        >
+          <div class="text-4xl mb-4">in</div>
+          <p class="text-sm text-text-tertiary uppercase tracking-wide font-semibold mb-2">LinkedIn</p>
+          <p class="font-medium group-hover:text-accent transition-colors">/in/lafir</p>
+        </a>
+      </div>
+
+      <!-- CTA -->
+      <div class="space-y-4">
+        <a href={`mailto:${profileData.email}`} class="button-primary inline-block">
+          Send Me an Email
+        </a>
+        <p class="text-text-tertiary text-sm">
+          Location: {profileData.location}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
